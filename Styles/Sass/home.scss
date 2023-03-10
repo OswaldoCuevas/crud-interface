@@ -1,0 +1,201 @@
+$color-1:rgb(0, 176, 234);
+$color-1-linear:linear-gradient(8deg, rgba(0,177,234,1) 0%, rgba(1,181,238,1) 26%, rgba(0,177,234,1) 100%);
+$color-1-secondary: rgb(1, 161, 214);
+$color-1-secondary-disable: rgba(4, 134, 177, 0.445); 
+$font-primary: 'Lato', sans-serif;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.content-secondary{
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);;
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    .info-general{
+        height: 100%;
+        width: 34%;
+        background-color: white;
+        border-radius: 5px;
+        nav{
+            width: 100%;
+            height: 30px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: $color-1-secondary;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+                span{
+                    color: white;
+                    margin-left: 20px;
+                    font-family: $font-primary;
+                    font-weight: bold;
+                }
+            }
+            .span-precio{
+                align-self: center;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span{
+                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                 padding: 30px 50px;
+                 border-radius: 5px;
+                 font-size: 35px;
+                 font-family: $font-primary;
+                 margin-top: 40px;
+                 border-top:15px solid $color-1-secondary ;
+                }
+             }
+             .filtrar-chart{
+                width: 80%;
+                margin-left: 10%;
+                display: flex;
+                justify-content: space-between;
+                span{
+                    padding: 5px 10px;
+                    border: 1px solid rgb(161, 161, 161);
+                    border-radius: 20px;
+                    color: rgb(83, 82, 82);
+                    font-family: $font-primary;
+                    cursor: pointer;
+                    transition: all 0.15s ease-in-out;
+               
+                    &:not(.active-filter):hover{
+                        border: 1px solid $color-1;
+                        color: $color-1;
+                    }
+                    
+                }
+                .active-filter{
+                    border: 2px solid $color-1;
+                    color: $color-1;  
+                    font-weight: bold;
+                   
+                }  
+             }
+            
+            
+    }
+    .info-users{
+        height: 100%;
+        width: 65%;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: white;
+   
+        .nav-options-user{
+            width: 100%;
+            height: 30px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: $color-1-secondary;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+                span{
+                    width: 50%;
+                    text-align: center;
+                    color: white;
+                    font-family: $font-primary;
+                    cursor: pointer;
+                }
+                .active{
+                    font-weight: bold;
+                }
+            }
+            .table{
+                width: 96%;
+                margin-left: 2%;
+                overflow: auto;
+                height: calc(100% - 45px);
+                table{
+                    width: 100%;
+                    height: 100%;
+                    thead{
+                        tr{
+                            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                            th{
+                                padding: 10px 20px;
+                                font-family: $font-primary;
+                                font-size: 14px;
+                            }
+                        }
+                        
+                    }
+                    tbody{
+                        tr{
+                            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                            th,td{
+                                padding: 10px 20px;
+                                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                                font-size: 12px;
+                                cursor: pointer;
+                               
+                            }
+                            
+                            .finalizado {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                span{
+                                     color: white;
+                                    padding: 5px 20px;
+                                    border-radius: 2px;
+                                }
+                                .success{
+                                    background-color: rgb(11, 211, 11);
+                                
+                                }
+                                .danger{
+                                    background-color: rgb(11, 211, 11);
+                                
+                                }
+                                
+                               
+                            }
+                            
+                        } 
+                        tr:hover{
+                                background-color: rgba(0, 0, 0, 0.15);
+                            }
+                        tr:nth-child(2n){
+                            background-color: rgb(247, 244, 244);
+                            &:hover{
+                                background-color: rgba(0, 0, 0, 0.15);
+                            }
+                        }
+                    }
+                }
+            }
+            
+    }
+}
+#myChart{
+    margin-top: 30px;
+    height: 400px;
+    width: 400px;
+}
+@media screen and (max-width: 1000px){
+    .content-secondary{
+        flex-direction: column;
+        .info-general{
+            width: 98%;
+            height: auto;
+            padding-bottom:10px ;
+            margin-bottom: 10px;
+        }
+        .info-users{
+            width: 98%;
+        }
+    }
+}

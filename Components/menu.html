@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../Styles/Css/Style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://kit.fontawesome.com/0b92b93f06.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+    <title>MobEmmanuel</title>
+</head>
+<body>
+    <nav class="dashboard-nav-list nav-light">
+        <ul class="dashboard-nav-logo">
+            <a href="#"><span>MobEmmanuel</span></a>
+        </ul>
+        <ul class="dashboard-nav-items">
+            <li class="nav-item"><a id="home" ><span>Inicio</span></a></li>
+            <li class="nav-item"><a id="administradores" ><span>Administradores</span></a></li>
+            <li class="nav-item"><a id="tarjetas" ><span>Tarjetas</span></a></li>
+            <li class="nav-item"><a id="log-out" ><span>Cerrar Sesión</span></a></li>
+         </ul>
+         
+            <span class="bars show-items"><i class="fa-solid fa-bars"></i></span>
+            <span class="bars hide-items"><i class="fa-solid fa-xmark"></i></span>
+         
+    </nav>
+    <section class="content-primary">
+
+    </section>
+</body>
+</html>
+<script>
+    WindowWidth = $(window).width();
+    $(".show-items").on('click', function(){
+        show_nav()
+    })
+    $(".hide-items").on('click', function(){
+        hide_nav()
+    })
+    $(".nav-item").on('click', function(){
+       const id_child = $(this).children("a").attr("id");
+       $(".active").removeClass("active");
+       $("#"+id_child).addClass("active");
+       $(this).addClass("active");
+
+       $(".content-primary").load(id_child+".html");
+      
+    });
+    if(WindowWidth < 700){
+        $(".nav-item").on('click', function(){
+            hide_nav()
+        });
+    }
+    function hide_nav(){
+        $(".show-items").show();
+        $(".hide-items").hide();
+        $(".dashboard-nav-items").hide();    
+    }
+    function show_nav(){
+        $(".show-items").hide();
+        $(".hide-items").show();
+        $(".dashboard-nav-items").show(); 
+    }
+</script>
+<script>
+   
+</script>

@@ -1,0 +1,195 @@
+$color-1:rgb(0, 176, 234);
+$color-1-linear:linear-gradient(8deg, rgba(0,177,234,1) 0%, rgba(1,181,238,1) 26%, rgba(0,177,234,1) 100%);
+$color-1-secondary: rgb(1, 161, 214);
+$color-1-secondary-disable: rgba(4, 134, 177, 0.445); 
+$font-primary: 'Lato', sans-serif;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.content-secondary{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .content-table{
+        width: 800px;
+        margin-top: 10px;
+        padding-bottom: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          .nav-content-table{
+            width: 100%;
+            height: 30px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: $color-1-secondary;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .title-table{
+                color: white;
+                margin-left: 20px;
+                font-family: $font-primary;
+                font-weight: bold;
+            }
+            .var-options{
+                display: flex;
+                color: white;
+                margin-right: 20px;
+                width: 40px;
+                justify-content: space-between;
+                cursor: pointer;
+                span{
+                    font-size: 15px;
+                }
+            }
+        }   
+        .group-inputs{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 95%;
+            margin-left: 2.5%;            
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+               
+                .col{
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    
+                    label{
+                        color: rgb(92, 94, 92);
+                        font-family: $font-primary;
+                        margin-bottom: 4px;
+                        padding-left: 4px;
+                    }
+                    .icon-input{
+                        width: 100%;
+                        &:focus-within{
+                            input{
+                                border-bottom: 3px solid $color-1-secondary;
+                            }
+                            span{
+                                color: $color-1-secondary;
+                            }
+                        }
+                        input{
+                            width: calc(100% - 30px);
+                            height: 25px;
+                            outline: none;
+                            border:none;
+                            border-left: 1.5px solid rgb(190, 189, 189);
+                            border-right: 1.5px solid rgb(190, 189, 189);
+                            border-top: 1.5px solid rgb(190, 189, 189);
+                            border-bottom: 3px solid $color-1-secondary-disable;
+                            border-radius: 4px;
+                            transition: all 0.2s ease-in-out;
+                            padding-left: 10px;
+                            padding-right: 20px;
+                            color-scheme: #fff;
+                            
+                        }
+                        #fecha_inicio{
+                            cursor: pointer;
+                        }
+                        span{
+                            position: absolute;
+                            top: 0;
+                            margin-top:27px;
+                            margin-left: calc(100% - 20px);
+                            color: $color-1-secondary-disable;
+                            transition: all 0.2s ease-in-out;
+                        }
+                        
+                    }
+                    .datepicker{
+                        width: 100%;
+                        height: 200px;
+                        margin-left: 2px;
+                       
+                    }
+                    
+                    
+                }
+                .col-6{
+                    width: 60%;
+                }
+                .col-3{
+                    width: 30%;
+                }
+            }
+        }
+        .costos-meses{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            padding: 10px;
+            .precios-meses{
+                background-color: $color-1-secondary;
+                color: white;
+                padding: 10px 50px;
+                border-top-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                margin-bottom: 20px;
+                font-size: 18px;
+                font-family: $font-primary;
+            }
+            div{
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+                height: 40px;
+                span{
+                    font-size: 18px;
+                    font-family: $font-primary;
+                }
+            }
+        }
+        button{
+            background-color: $color-1-secondary;
+            align-self: center;
+            border: none;
+            color: #fff;
+            padding: 10px 60px;
+            font-size: 18px;
+            font-family: $font-primary;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 50px;
+
+        }
+    }
+}
+
+
+@media screen and (max-width: 530px){
+   
+    .content-secondary{
+        .content-table{
+            width: 100%;
+            margin-left: 0;
+           
+        }
+    }
+}
+@media screen and (max-width: 800px){
+   
+    .content-secondary{
+        .content-table{
+            width: 98%;
+            margin-left: 0;
+           
+        }
+    }
+}

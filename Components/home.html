@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="../Styles/Css/home.css">
+<div class="content-secondary">
+    <div class="info-general">
+        <nav> <span>Información general</span> </nav>
+        <div class="span-precio"><span >$550.00 MXN</span></div>
+        <canvas id="myChart" ></canvas>
+        <div class="filtrar-chart">
+            <span class="active-filter">Semana</span>
+            <span>Mes</span>
+            <span>Año</span>
+            <span>Todo</span>
+        </div>
+    </div>
+    <div class="info-users">
+        <nav class="nav-options-user"><span class="active">Pagados</span><span>Pendientes</span></nav>
+        <div class="table">
+            <table >
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="title-col">usuario</span> </th>
+                        <th scope="col"><span class="title-col">Monto</span> </th>
+                        <th scope="col"><span class="title-col">Contado</span></th>
+                        <th scope="col"><span class="title-col">3 meses</span></th>
+                        <th scope="col"><span class="title-col">Final</span></th>
+                        <th scope="col"><span class="title-col">Fecha</span></th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>
+<script type="text/javascript">
+const labels = ['1','2','3','4','5','6','7']
+const dataset2 = {
+    label: "Monto",
+    data: [5, 44, 55, 100,34,32,4],
+    borderColor: 'rgba(69, 248, 84, 0.8)',
+    fill: false,
+    tension: 0.1
+};
+ 
+ 
+const graph = document.querySelector("#myChart");
+ 
+const data = {
+    labels: labels,
+    datasets: [dataset2]
+};
+ 
+const config = {
+    type: 'line',
+    data: data,
+};
+ 
+new Chart(graph, config);
+</script>
+<script type="text/javascript">
+    $(".filtrar-chart").children("span").on('click', function(){
+        $(".filtrar-chart").children("span").removeClass("active-filter");
+        $(this).addClass('active-filter');
+    });
+    $(".nav-options-user").children("span").on('click', function(){
+        $(".nav-options-user").children("span").removeClass("active");
+        $(this).addClass('active');
+    });
+</script>
+<script type="text/javascript">
+    var html
+    var precio = 550;
+    var precio_contado = contado(precio);
+    var precio_3_meses = mes3(precio);
+
+
+    
+    for(var i=0; i<100;i++){
+        const monto = 40;
+        const fecha = "20-NOV-2022";
+        resta(monto);
+        html += `
+            <tr>
+                <th scope="row">${i}</th>
+                    <td>$${monto}</td>
+                    <td>$${precio_contado}</td>
+                    <td>$${precio_3_meses}</td>
+                    <td>$${precio}</td>
+                    <td>$${fecha}</td>   
+            </tr>
+        `;
+    }
+    
+    $(".tbody").html(html);
+    function contado(valor){
+        return valor-(valor*0.4);
+   }
+   function mes3(valor){
+        return valor-valor*0.3;
+   }
+   function resta(monto){
+        precio          = precio         - monto >= 0 ? precio         - monto:0;
+        precio_contado  = precio_contado - monto >= 0 ? precio_contado - monto:0;
+        precio_3_meses  = precio_3_meses - monto >= 0 ? precio_3_meses - monto:0;
+   }
+   //<i class="fa-solid fa-bookmark"></i>
+</script>

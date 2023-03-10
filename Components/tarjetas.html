@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="../Styles/Css/tablasCosultas.css">
+<div class="content-secondary">
+    <div class="content-table">
+        <nav class="nav-content-table">
+            <span class="title-table">Tarjetas</span>
+            <span class="reload"><i class="fa-solid fa-repeat"></i></span>
+        </nav>
+        <div class="div-filters">
+            <div class="button-filter">
+                <button class="filter"><i class="fa-solid fa-filter"></i></button>
+                <button class="plus"><i class="fa-solid fa-plus"></i></button>    
+            </div>
+             <div class="input-button">
+                 <button class="submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                 <input class="search" type="search" placeholder="Buscar tarjeta">
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"><span class="title-col">ID</span> </th>
+                <th scope="col"><span class="title-col">Cliente</span> </th>
+                <th scope="col"><span class="title-col">Producto</span></th>
+                <th scope="col" class="no-important"><span class="title-col">Cantidad</span></th>
+                <th scope="col" class="no-important"><span class="title-col">Costo</span></th>
+                <th scope="col" class="no-important"><span class="title-col">Pagado</span></th>
+                <th scope="col" class="no-important"><span class="title-col">Fecha</span></th>
+                <th scope="col"><span class="title-col">Finalizado</span></th>
+              
+            </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              
+              
+            </tbody>
+          </table>
+    </div> 
+</div>
+<script type="text/javascript">
+    var $html
+    for(var i=0; i<10;i++){
+        $html += `
+            <tr id="${i}" class="tr-tarjeta">
+                <th scope="row">${i}</th>
+                    <td>Jose manuel cuevas Herrera</td>
+                    <td >colcha</td>
+                    <td class="no-important">1</td>
+                    <td class="no-important">$500</td>
+                    <td class="no-important">$500</td>
+                    <td class="no-important">20/nov/2022</td>
+                    <td class="finalizado"><span class="success">Finalizada</td>
+            </tr>
+        `;
+    }
+    
+    $(".tbody").html($html);
+    $(".plus").on('click', function(){
+        $(".content-primary").load("registrarTarjeta.html");
+   })
+   $(".tr-tarjeta").on('click', function(){
+        $(".content-primary").empty();
+        $(".content-primary").load("tarjeta.html");
+   })
+   //<i class="fa-solid fa-bookmark"></i>
+</script>

@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="../Styles/Css/registrar.css">
+<div class="content-secondary">
+    <div class="content-table">
+        <nav class="nav-content-table">
+            <span class="title-table">Registrando tarjeta</span>
+            <div class="var-options"><span ><i class="fa-solid fa-rotate-left"></i></span><span class="exit" id="tarjetas"><i class="fa-solid fa-xmark"></i></span></div>
+        </nav>
+        <form class="group-inputs">
+            <div class="row">
+                <div class="col col-6">
+                    <label for="nombre" >Nombre de usuario</label>
+                    <div class="icon-input">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido">
+                        <span ><i class="fa-solid fa-user"></i></span>
+                    </div>
+                </div>
+                <div class= "col col-3">
+                    <label for="numero_tarjeta">Tarjeta</label>
+                    <div class="icon-input">
+                        <input type="text" id="numero_tarjeta" name="numero_tarjeta" placeholder="Número">
+                        <span ><i class="fa-solid fa-tablet"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-6"> 
+                    <label for="fecha_inicio"> Fecha de inicio</label>
+                    <div class="icon-input">
+                        <input type="text" name="fecha_inicio" id="fecha_inicio" placeholder="DD/MM/YYYY">    
+                        <span><i class="fa-regular fa-calendar-days"></i></span>
+                    </div>
+                
+                </div>
+                <div class="col col-3">
+                    <label for="costo"> Costo </label>
+                    <div class="icon-input">
+                        <input type="number" name="costo" id="costo" placeholder="precio final">
+                        <span ><i class="fa-solid fa-dollar-sign"></i></span>
+                    </div>
+                 
+                  
+                </div>  
+                
+            </div>
+            
+            <div class="costos-meses">
+                <span class="precios-meses">Precio a meses</span>
+                <div><span>Contado </span>  <span id="contado">$0</span></div>
+                <div><span>1 Mes </span>    <span id="mes-1">$0</span></div>
+                <div><span>3 Meses </span>  <span id="mes-3">$0</span></div>
+                <div><span>6 Meses </span>  <span id="mes-6">$0</span></div>
+            </div>
+            <button type="submit" disabled> Registrar</button>
+        </form>
+       
+    </div> 
+</div>
+<script>
+    var $html
+    for(var i=0; i<10;i++){
+        $html += `
+        <tr>
+                    <th scope="row">${i}</th>
+                    <td>Jose manuel cuevas Herrera</td>
+                    <td >colcha</td>
+                    <td class="no-important">1</td>
+                    <td class="no-important">$500</td>
+                    <td class="no-important">$500</td>
+                    <td class="no-important">20/nov/2022</td>
+                    <td class="finalizado"><span class="success">Finalizada</td>
+            </tr>
+        `;
+    }
+    
+    $(".tbody").html($html);
+    $(".exit").on('click', function(){
+        const id = $(this).attr('id'); 
+        $(".content-primary").load(id+".html");
+   })
+   const fecha = new Date();
+   const añoActual = fecha.getFullYear()
+    $("#fecha_inicio").datepicker(añoActual);
+ 
+   $("#costo").on('keyup', function(){
+    const val = $(this).val();
+    if(val!=""){
+        imprimirMeses(parseInt(val, 10));
+    } 
+   })
+   function imprimirMeses(valor){
+    const contado = valor-(valor*0.4);
+    const mes1 = valor-(valor*0.3);
+    const mes3 = valor-valor*0.3;
+  
+    $("#contado").html("$"+ contado);
+    $("#mes-1").html("$"+ Math.trunc(mes1));
+    $("#mes-3").html("$"+ Math.trunc(mes3));
+    $("#mes-6").html("$"+ Math.trunc(valor));
+   }
+   //<i class="fa-solid fa-bookmark"></i>
+</script>

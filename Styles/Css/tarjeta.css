@@ -1,0 +1,141 @@
+.content-secondary {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-secondary .content-table {
+  width: 800px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.content-secondary .content-table .nav-content-table {
+  width: 100%;
+  height: 30px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgb(1, 161, 214);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content-secondary .content-table .nav-content-table .title-table {
+  color: white;
+  margin-left: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+.content-secondary .content-table .nav-content-table .var-options {
+  display: flex;
+  color: white;
+  margin-right: 20px;
+  width: 40px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.content-secondary .content-table .nav-content-table .var-options span {
+  font-size: 15px;
+}
+.content-secondary .content-table .group-span {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: 2.5%;
+}
+.content-secondary .content-table .group-span div span {
+  display: flex;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.content-secondary .content-table .group-span div span p {
+  margin-left: 2px;
+  font-family: "Lato", sans-serif;
+}
+.content-secondary .content-table .group-span div span p:nth-child(2n) {
+  color: rgb(1, 161, 214);
+}
+.content-secondary .content-table .group-span div span p:nth-child(3n) {
+  color: rgb(12, 13, 14);
+}
+.content-secondary .content-table .span-precio {
+  align-self: center;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-secondary .content-table .span-precio span {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 30px 50px;
+  border-radius: 5px;
+  font-size: 35px;
+  font-family: "Lato", sans-serif;
+  margin-top: 40px;
+  border-top: 15px solid rgb(1, 161, 214);
+}
+.content-secondary .content-table .table {
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 10px;
+}
+.content-secondary .content-table .table thead tr {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.content-secondary .content-table .table thead tr th {
+  padding: 10px 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+}
+.content-secondary .content-table .table tbody tr {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.content-secondary .content-table .table tbody tr th, .content-secondary .content-table .table tbody tr td {
+  padding: 10px 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+.content-secondary .content-table .table tbody tr .finalizado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-secondary .content-table .table tbody tr .finalizado span {
+  color: white;
+  padding: 5px 20px;
+  border-radius: 2px;
+}
+.content-secondary .content-table .table tbody tr .finalizado .success {
+  background-color: rgb(11, 211, 11);
+}
+.content-secondary .content-table .table tbody tr .finalizado .danger {
+  background-color: rgb(11, 211, 11);
+}
+.content-secondary .content-table .table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.content-secondary .content-table .table tbody tr:nth-child(2n) {
+  background-color: rgb(247, 244, 244);
+}
+.content-secondary .content-table .table tbody tr:nth-child(2n):hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 530px) {
+  .content-secondary .content-table {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .content-secondary .content-table {
+    width: 98%;
+    margin-left: 0;
+  }
+}
+
+/*# sourceMappingURL=tarjeta.css.map */

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="../Styles/Css/tarjeta.css">
+<div class="content-secondary">
+    <div class="content-table">
+        <nav class="nav-content-table">
+            <span class="title-table">Tarjeta</span>
+            <div class="var-options"><span><i class="fa-solid fa-pen-to-square"></i></span><span class="exit" id="tarjetas"><i class="fa-solid fa-xmark"></i></span></div>
+        </nav>
+       <div class="group-span">
+            <div>
+                <span><p>Producto:</p><p> Colcha animanilitos</p></span>
+                <span><p>Usuario:</p><p> Jorge Amador</p></span>
+            </div>
+            <div>
+                <span><p>Inicio:</p><p> 23/nov/2023</p></span>
+                <span><p>Tarjeta:</p><p> 23</p></span>
+            </div>  
+       </div>
+       <div class="span-precio"><span >$550.00 MXN</span></div>
+       <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><span class="title-col">Pago</span> </th>
+            <th scope="col"><span class="title-col">Monto</span> </th>
+            <th scope="col"><span class="title-col">Contado</span></th>
+            <th scope="col"><span class="title-col">3 meses</span></th>
+            <th scope="col"><span class="title-col">Final</span></th>
+            <th scope="col"><span class="title-col">Fecha</span></th>
+          
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        </tbody>
+      </table> 
+    </div> 
+</div>
+<script type="text/javascript">
+    var html
+    var precio = 550;
+    var precio_contado = contado(precio);
+    var precio_3_meses = mes3(precio);
+
+
+    
+    for(var i=0; i<10;i++){
+        const monto = 40;
+        const fecha = "20-NOV-2022";
+        resta(monto);
+        html += `
+            <tr>
+                <th scope="row">${i}</th>
+                    <td>$${monto}</td>
+                    <td>$${precio_contado}</td>
+                    <td>$${precio_3_meses}</td>
+                    <td>$${precio}</td>
+                    <td>$${fecha}</td>   
+            </tr>
+        `;
+    }
+    
+    $(".tbody").html(html);
+    function contado(valor){
+        return valor-(valor*0.4);
+   }
+   function mes3(valor){
+        return valor-valor*0.3;
+   }
+   function resta(monto){
+        precio          = precio         - monto >= 0 ? precio         - monto:0;
+        precio_contado  = precio_contado - monto >= 0 ? precio_contado - monto:0;
+        precio_3_meses  = precio_3_meses - monto >= 0 ? precio_3_meses - monto:0;
+   }
+   //<i class="fa-solid fa-bookmark"></i>
+</script>

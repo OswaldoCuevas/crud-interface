@@ -1,0 +1,170 @@
+$color-1:rgb(0, 176, 234);
+$color-1-linear:linear-gradient(8deg, rgba(0,177,234,1) 0%, rgba(1,181,238,1) 26%, rgba(0,177,234,1) 100%);
+$color-1-secondary: rgb(1, 161, 214);
+$color-1-secondary-disable: rgba(4, 134, 177, 0.445); 
+$font-primary: 'Lato', sans-serif;
+.content-secondary{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .content-table{
+        width: 800px;
+        margin-top: 10px;
+        padding-bottom: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          .nav-content-table{
+            width: 100%;
+            height: 30px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: $color-1-secondary;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .title-table{
+                color: white;
+                margin-left: 20px;
+                font-family: $font-primary;
+                font-weight: bold;
+            }
+            .var-options{
+                display: flex;
+                color: white;
+                margin-right: 20px;
+                width: 40px;
+                justify-content: space-between;
+                cursor: pointer;
+                span{
+                    font-size: 15px;
+                }
+            }
+        }   
+        .group-span{
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            margin-left: 2.5%;
+            div{
+               
+                span{
+                    display: flex;
+                    margin-top: 10px;
+                    font-size: 20px;
+                 p{
+                    margin-left: 2px;
+                    font-family:$font-primary;
+                    
+                 }   
+                 p:nth-child(2n){
+                    color: $color-1-secondary
+                 }
+                 p:nth-child(3n){
+                    color: rgb(12, 13, 14);
+                    
+                 }
+                }
+            }
+            
+        } 
+        .span-precio{
+           align-self: center;
+           background-color: white;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           span{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 30px 50px;
+            border-radius: 5px;
+            font-size: 35px;
+            font-family: $font-primary;
+            margin-top: 40px;
+            border-top:15px solid $color-1-secondary ;
+           }
+        }
+        .table{
+            width: 96%;
+            margin-left: 2%;
+            margin-top: 10px;
+            
+            thead{
+                tr{
+                    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                    th{
+                        padding: 10px 20px;
+                        font-family: $font-primary;
+                        font-size: 14px;
+                    }
+                }
+                
+            }
+            tbody{
+                tr{
+                    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                    th,td{
+                        padding: 10px 20px;
+                        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                        font-size: 12px;
+                        cursor: pointer;
+                       
+                    }
+                    
+                    .finalizado {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        span{
+                             color: white;
+                            padding: 5px 20px;
+                            border-radius: 2px;
+                        }
+                        .success{
+                            background-color: rgb(11, 211, 11);
+                        
+                        }
+                        .danger{
+                            background-color: rgb(11, 211, 11);
+                        
+                        }
+                        
+                       
+                    }
+                    
+                } 
+                tr:hover{
+                        background-color: rgba(0, 0, 0, 0.15);
+                    }
+                tr:nth-child(2n){
+                    background-color: rgb(247, 244, 244);
+                    &:hover{
+                        background-color: rgba(0, 0, 0, 0.15);
+                    }
+                }
+            }
+        }      
+    }
+}
+@media screen and (max-width: 530px){
+   
+    .content-secondary{
+        .content-table{
+            width: 100%;
+            margin-left: 0;
+           
+        }
+    }
+}
+@media screen and (max-width: 800px){
+   
+    .content-secondary{
+        .content-table{
+            width: 98%;
+            margin-left: 0;
+           
+        }
+    }
+}
