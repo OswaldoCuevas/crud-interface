@@ -22,10 +22,10 @@
             <a href="#"><span>MobEmmanuel</span></a>
         </ul>
         <ul class="dashboard-nav-items">
-            <li class="nav-item"><a id="home" ><span>Inicio</span></a></li>
-            <li class="nav-item"><a id="administradores" ><span>Administradores</span></a></li>
-            <li class="nav-item"><a id="tarjetas" ><span>Tarjetas</span></a></li>
-            <li class="nav-item"><a id="log-out" ><span>Cerrar Sesión</span></a></li>
+            <li class="nav-item nav"><a id="home" class="active"><span>Inicio</span></a></li>
+            <li class="nav-item nav"><a id="administradores" ><span>Administradores</span></a></li>
+            <li class="nav-item nav"><a id="tarjetas" ><span>Tarjetas</span></a></li>
+            <li class="nav-item nav"><a id="log-out" ><span>Cerrar Sesión</span></a></li>
          </ul>
          
             <span class="bars show-items"><i class="fa-solid fa-bars"></i></span>
@@ -38,36 +38,74 @@
 </body>
 </html>
 <script>
-    WindowWidth = $(window).width();
-    $(".show-items").on('click', function(){
-        show_nav()
-    })
-    $(".hide-items").on('click', function(){
-        hide_nav()
+const limitWidth = 750
+var showItems = false;
+resize()
+onclick()
+
+$(window).resize((e) => {
+        resize()
+        onclick()
+})
+function onclick(){
+    $(".nav").on('click', function(){
+        $(".nav").children().removeClass("active");
+        $(this).children().addClass("active");
     })
     $(".nav-item").on('click', function(){
-       const id_child = $(this).children("a").attr("id");
-       $(".active").removeClass("active");
-       $("#"+id_child).addClass("active");
-       $(this).addClass("active");
-
-       $(".content-primary").load(id_child+".html");
-      
-    });
-    if(WindowWidth < 700){
-        $(".nav-item").on('click', function(){
-            hide_nav()
-        });
+        const id = $(this).children().attr("id");
+        $(".content-primary").load(id+".html")
+    })
+    $(".nav-item-full").on('click', function(){
+        const id = $(this).children().attr("id");
+        $(".dashboard-nav-items-full").hide()
+        $(".content-primary").load(id+".html")
+        $(".show-items").show()
+        $(".hide-items").hide()
+        showItems = false;
+        
+    })
+    $(".show-items").on('click', function(){
+        $(".dashboard-nav-items-full").css("display","flex");
+        $(".show-items").hide()
+        $(".hide-items").show()
+        showItems = true;
+    })
+    $(".hide-items").on('click', function(){
+        $(".dashboard-nav-items-full").css("display","none");
+        $(".show-items").show()
+        $(".hide-items").hide()
+        showItems = false;
+    })
+}
+    function resize(){
+        const windowWidth = window.innerWidth;
+        if(windowWidth < limitWidth){
+            movil()
+        }else{
+            web()
+             }
     }
-    function hide_nav(){
-        $(".show-items").show();
-        $(".hide-items").hide();
-        $(".dashboard-nav-items").hide();    
+    function movil(){
+        $(".nav-item").removeClass("nav-item").addClass("nav-item-full");; 
+        $(".dashboard-nav-items").removeClass("dashboard-nav-items").addClass("dashboard-nav-items-full"); 
+        
+        if(!showItems){
+            $(".dashboard-nav-items-full").hide()
+            $(".show-items").show();
+        }else{
+            $(".dashboard-nav-items-full").css("display","flex");
+            $(".show-items").hide();
+        }
+        
     }
-    function show_nav(){
-        $(".show-items").hide();
-        $(".hide-items").show();
-        $(".dashboard-nav-items").show(); 
+    function web(){
+        $(".nav-item-full").removeClass("nav-item-full").addClass("nav-item");; 
+        $(".dashboard-nav-items-full").removeClass("dashboard-nav-items-full").addClass("dashboard-nav-items"); 
+        $(".dashboard-nav-items").css("display","flex");
+        $(".bars").hide()
+        showItems = false;
+     
     }
 </script>
 <script>

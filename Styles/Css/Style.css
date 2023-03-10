@@ -69,7 +69,7 @@ html, body {
   background: rgb(4, 134, 177);
 }
 
-.nav-item {
+.nav-item, .nav, .nav-item-full {
   position: relative;
   text-decoration: none;
   display: flex;
@@ -80,7 +80,7 @@ html, body {
   overflow: hidden;
   transition: all 0.35s ease-in-out;
 }
-.nav-item a::before {
+.nav-item a::before, .nav a::before, .nav-item-full a::before {
   position: absolute;
   content: "";
   width: 100%;
@@ -90,16 +90,16 @@ html, body {
   background-color: white;
   transition: all 0.35s ease-in-out;
 }
-.nav-item:hover {
+.nav-item:hover, .nav:hover, .nav-item-full:hover {
   background-color: rgb(4, 134, 177);
 }
-.nav-item.active {
+.nav-item.active, .nav.active, .nav-item-full.active {
   background-color: rgb(4, 134, 177);
 }
-.nav-item .active::before {
+.nav-item .active::before, .nav .active::before, .nav-item-full .active::before {
   left: 0;
 }
-.nav-item a {
+.nav-item a, .nav a, .nav-item-full a {
   color: white;
   text-decoration: none;
   font-family: "Lato", sans-serif;
@@ -111,6 +111,28 @@ html, body {
   height: calc(100% - 60px);
 }
 
+.dashboard-nav-items-full {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 60px;
+  flex-direction: column;
+  background: rgb(4, 134, 177);
+  background: rgb(4, 134, 177);
+}
+.dashboard-nav-items-full .nav-item-full {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+.dashboard-nav-items-full .nav-item-full a {
+  font-size: 22px;
+}
+
 @media screen and (min-width: 700px) {
   .dashboard-nav-list {
     position: static;
@@ -118,40 +140,11 @@ html, body {
     flex-direction: row;
   }
 }
-@media screen and (max-width: 700px) {
-  .nav-item {
-    display: none;
-  }
-
+@media screen and (max-width: 750px) {
   .dashboard-nav-logo {
     width: 100%;
     align-items: center;
     text-align: center;
-  }
-
-  .show-items {
-    display: block;
-  }
-
-  .dashboard-nav-items {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-    top: 60px;
-    flex-direction: column;
-  }
-  .dashboard-nav-items .nav-item {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-  }
-  .dashboard-nav-items .nav-item a {
-    font-size: 22px;
   }
 }
 
